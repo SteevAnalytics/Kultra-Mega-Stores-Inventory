@@ -28,7 +28,7 @@ The data was imported into **Microsoft SQL Server** for structured analysis usin
 
 ## 📂 Data Source
 
-- **Dataset Name:** `KMS Sql Case Study.csv`
+- **Dataset Name:** [KMS Sql Case Study.csv](https://github.com/SteevAnalytics/Kultra-Mega-Stores-Inventory/blob/b0b13f7830c1841d3c609ec1775e1fbbb2e3a018/KMS%20Sql%20Case%20Study.csv)]
 - **Imported Into:** SQL Server database using SSMS
 - **Data Range:** 2009 to 2012
 - **Source Fields Include:** Order ID, Customer ID, Segment, Region, Category, Sub-Category, Sales, Profit, Quantity, Discount, Shipping Mode, Order Priority, and Returns
