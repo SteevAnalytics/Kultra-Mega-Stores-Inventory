@@ -28,7 +28,7 @@ The data was imported into **Microsoft SQL Server** for structured analysis usin
 
 ## 📂 Data Source
 
-- **Dataset Name:** `KMS_Orders_2009_2012.csv`
+- **Dataset Name:** `KMS Sql Case Study.csv`
 - **Imported Into:** SQL Server database using SSMS
 - **Data Range:** 2009 to 2012
 - **Source Fields Include:** Order ID, Customer ID, Segment, Region, Category, Sub-Category, Sales, Profit, Quantity, Discount, Shipping Mode, Order Priority, and Returns
