@@ -18,6 +18,7 @@ GROUP BY Product_Category
 -- 2. What are the Top 3 and Bottom 3 regions in terms of sales?
 
 		--- Top 3
+
 SELECT TOP 3 Region, 
 SUM(Sales) AS Total_Sales
 FROM KMS_sales
@@ -126,49 +127,21 @@ order by total_profit desc
 
 
 -- 10. Which customer returned items, and what segment do they belong to? 
-
+ 
+ select * from Order_Status
 
 SELECT Customer_Name, Customer_Segment
-FROM  KMS_Sales
-WHERE Return_Status = 'Returned';
-
---Based on the analysis of the available data in the KMS_Sales table,
---there is no record indicating any product returns during the evaluated period. 
---This suggests that either no returns occurred, or return-related transactions 
---were not captured or stored in the current dataset.
+FROM  KMS_Sales as KS
+Inner Join order_status as OS on ks.Order_ID = os.Order_ID
+WHERE Status = 'Returned';
 
 
---11. If the delivery truck is the most economical but the slowest shipping method and 
---Express Air is the fastest but the most expensive one, do you think the company 
---appropriately spent shipping costs based on the Order Priority? Explain your answer 
-
-
-
-
--- total numbers of order that falls in each shipping mode and there order of priority
+-- 11. total numbers of order that falls in each shipping mode and there order of priority
 
 SELECT Order_Priority, Ship_Mode, COUNT(Order_ID) AS Num_Orders
 FROM KMS_Sales
 GROUP BY  Order_Priority, Ship_Mode
 ORDER BY Order_Priority desc
-
-
-
-SELECT 
-    Order_Priority,
-    Ship_Mode,
-    COUNT(Order_ID) AS Num_Orders,
-    CONCAT(
-        CAST(CAST(COUNT(Order_ID) * 100.0 / SUM(COUNT(Order_ID)) OVER (PARTITION BY Order_Priority) AS DECIMAL(5,2)) AS VARCHAR(10)),
-        '%'
-    ) AS Percentage_Within_Priority
-FROM 
-    KMS_Sales
-GROUP BY 
-    Order_Priority, Ship_Mode
-ORDER BY 
-    Order_Priority, Ship_Mode;
-
 
 
 
@@ -182,7 +155,3 @@ GROUP BY  Order_Priority, Ship_Mode
 ORDER BY  Order_Priority, Ship_Mode, Total_Shipping_Cost desc ;
 
 
-
-
-
-Select * from KMS_sales
